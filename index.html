@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>心肌梗死健康宣教</title>
+  <style>
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      background: #f0f4f8;
+      color: #2d3748;
+      line-height: 1.8;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ===== Hero Banner ===== */
+    .hero {
+      background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 50%, #3182ce 100%);
+      color: #fff;
+      text-align: center;
+      padding: 48px 20px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: -40px;
+      width: 160px; height: 160px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+    .hero-icon {
+      width: 80px; height: 80px;
+      margin: 0 auto 16px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+    .hero h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+    }
+    .hero .subtitle {
+      font-size: 0.95rem;
+      opacity: 0.85;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ===== Container ===== */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 16px 60px;
+    }
+
+    /* ===== Section Card ===== */
+    .section {
+      background: #fff;
+      border-radius: 16px;
+      margin-top: 24px;
+      padding: 28px 24px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 5px; height: 100%;
+    }
+    .section.blue::before   { background: #3182ce; }
+    .section.red::before    { background: #e53e3e; }
+    .section.orange::before { background: #dd6b20; }
+    .section.green::before  { background: #38a169; }
+    .section.purple::before { background: #805ad5; }
+    .section.teal::before   { background: #319795; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .section-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .section.blue .section-icon   { background: #ebf8ff; }
+    .section.red .section-icon    { background: #fff5f5; }
+    .section.orange .section-icon { background: #fffaf0; }
+    .section.green .section-icon  { background: #f0fff4; }
+    .section.purple .section-icon { background: #faf5ff; }
+    .section.teal .section-icon   { background: #e6fffa; }
+
+    .section-header h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1a202c;
+    }
+
+    /* ===== Content Styles ===== */
+    .section p {
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      color: #4a5568;
+    }
+    .section ul, .section ol {
+      padding-left: 6px;
+      margin-bottom: 10px;
+    }
+    .section li {
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      color: #4a5568;
+      list-style: none;
+      position: relative;
+      padding-left: 28px;
+    }
+    .section ol li::before {
+      position: absolute;
+      left: 0; top: 2px;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+    .section.blue ol li::before   { background: #3182ce; }
+    .section.red ol li::before    { background: #e53e3e; }
+    .section.orange ol li::before { background: #dd6b20; }
+    .section.green ol li::before  { background: #38a169; }
+    .section.purple ol li::before { background: #805ad5; }
+    .section.teal ol li::before   { background: #319795; }
+
+    .section ol li:nth-child(1)::before { content: '1'; }
+    .section ol li:nth-child(2)::before { content: '2'; }
+    .section ol li:nth-child(3)::before { content: '3'; }
+    .section ol li:nth-child(4)::before { content: '4'; }
+    .section ol li:nth-child(5)::before { content: '5'; }
+    .section ol li:nth-child(6)::before { content: '6'; }
+
+    .section ul li::before {
+      content: '';
+      position: absolute;
+      left: 6px; top: 10px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+    }
+    .section.blue ul li::before   { background: #3182ce; }
+    .section.red ul li::before    { background: #e53e3e; }
+    .section.orange ul li::before { background: #dd6b20; }
+    .section.green ul li::before  { background: #38a169; }
+    .section.purple ul li::before { background: #805ad5; }
+    .section.teal ul li::before   { background: #319795; }
+
+    /* ===== Alert Box ===== */
+    .alert {
+      background: #fff5f5;
+      border: 2px solid #fc8181;
+      border-radius: 12px;
+      padding: 14px 18px;
+      margin-top: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .alert-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+    .alert p {
+      font-weight: 700;
+      color: #c53030;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    /* ===== Tip Box ===== */
+    .tip {
+      background: #ebf8ff;
+      border-left: 4px solid #3182ce;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-top: 14px;
+    }
+    .tip p {
+      color: #2b6cb0;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    /* ===== Sub Section ===== */
+    .sub-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #2d3748;
+      margin: 18px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sub-title .emoji { font-size: 18px; }
+
+    /* ===== Danger-Emphasis ===== */
+    .danger-list li {
+      background: #fff5f5;
+      border-radius: 8px;
+      padding: 12px 14px 12px 42px !important;
+      margin-bottom: 8px;
+    }
+    .danger-list li::before {
+      left: 12px !important;
+      top: 14px !important;
+      width: 8px !important; height: 8px !important;
+      background: #e53e3e !important;
+    }
+    .danger-list li strong { color: #c53030; }
+
+    /* ===== Footer ===== */
+    .footer {
+      text-align: center;
+      padding: 30px 20px 40px;
+      color: #a0aec0;
+      font-size: 0.8rem;
+    }
+    .footer .hospital {
+      font-size: 0.9rem;
+      color: #718096;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    /* ===== Footer Branding ===== */
+    .footer-brand {
+      margin-bottom: 14px;
+    }
+    .footer-logo {
+      max-width: 200px;
+      height: auto;
+      margin: 0 auto 8px;
+      display: block;
+    }
+    .footer-dept {
+      font-size: 0.95rem;
+      color: #4a5568;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+    /* ===== Print Styles ===== */
+    @media print {
+      body { background: #fff; }
+      .container { max-width: 100%; padding: 0; }
+      .section { box-shadow: none; break-inside: avoid; margin-top: 16px; }
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 480px) {
+      .hero { padding: 36px 16px 32px; }
+      .hero h1 { font-size: 1.6rem; }
+      .section { padding: 22px 18px; }
+      .section-header h2 { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Hero ===== -->
+  <div class="hero">
+    <div class="hero-icon">
+      <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="38" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+        <path d="M40 22C36 16 26 16 22 22C18 28 18 36 24 42L40 58L56 42C62 36 62 28 58 22C54 16 44 16 40 22Z" fill="#fc8181" stroke="#fff" stroke-width="2"/>
+        <rect x="37" y="30" width="6" height="16" rx="1" fill="#fff"/>
+        <rect x="33" y="36" width="14" height="6" rx="1" fill="#fff"/>
+      </svg>
+    </div>
+    <h1>心肌梗死健康宣教</h1>
+    <p class="subtitle">了解心梗 · 识别信号 · 科学预防 · 守护心脏</p>
+  </div>
+
+  <div class="container">
+
+    <!-- ===== 一、什么是心梗 ===== -->
+    <div class="section blue">
+      <div class="section-header">
+        <div class="section-icon">💔</div>
+        <h2>一、什么是心梗？</h2>
+      </div>
+      <p>心脏上有好多给心脏供血的血管，就像水管一样。一旦血管突然堵死，心脏没血没氧气，心肌就会坏死，这就是<strong>心肌梗死</strong>。</p>
+      <div class="alert">
+        <span class="alert-icon">⚠️</span>
+        <p>说白了就是心脏血管堵死、心肌饿死了。发病快、死亡率高，千万别耽误！</p>
+      </div>
+    </div>
+
+    <!-- ===== 二、心梗信号 ===== -->
+    <div class="section red">
+      <div class="section-header">
+        <div class="section-icon">🚨</div>
+        <h2>二、心梗发作有啥信号？一定要记牢</h2>
+      </div>
+      <ol>
+        <li><strong>胸口难受：</strong>胸口闷、压榨疼、像压了大石头，喘不上气，持续超过15–20分钟，休息也不好转。</li>
+        <li><strong>放射性疼：</strong>不只是胸口，还会串到左肩、后背、脖子、下巴、上腹。</li>
+        <li><strong>伴随症状：</strong>出大汗、恶心想吐、头晕心慌、浑身无力、濒死感。</li>
+        <li><strong>特殊人群：</strong>老人、糖尿病、女性可能不胸痛，只觉得胃疼、胸闷、喘气费劲，千万别当成胃病。</li>
+      </ol>
+      <div class="alert">
+        <span class="alert-icon">🔔</span>
+        <p>记住：只要突然胸闷胸痛、大汗憋喘，先往心梗想，别硬扛！</p>
+      </div>
+    </div>
+
+    <!-- ===== 三、发作怎么做 ===== -->
+    <div class="section orange">
+      <div class="section-header">
+        <div class="section-icon">🏥</div>
+        <h2>三、一旦发作，立刻这么做</h2>
+      </div>
+      <ol>
+        <li><strong>马上停下</strong>所有活动，平躺或半坐着休息，别走路、别上楼、别用力。</li>
+        <li><strong>立刻打 120</strong>，别自己开车去医院，别等家人、别熬一会儿看看。</li>
+        <li>有<strong>速效救心丸、硝酸甘油</strong>可按说明含服，不确定血压不要乱吃药。</li>
+        <li>保持透气、放松情绪，<strong>不要喝水吃东西</strong>，防止呕吐呛到。</li>
+      </ol>
+      <div class="tip">
+        <p>🕐 时间就是生命！发病后 120 分钟内开通血管，抢救成功率最高。</p>
+      </div>
+    </div>
+
+    <!-- ===== 四、高危人群 ===== -->
+    <div class="section purple">
+      <div class="section-header">
+        <div class="section-icon">👥</div>
+        <h2>四、哪些人容易得心梗？</h2>
+      </div>
+      <ul>
+        <li>高血压、高血脂、糖尿病病人</li>
+        <li>长期抽烟、喝酒、熬夜、压力大</li>
+        <li>肥胖、不爱运动、爱吃油腻咸食</li>
+        <li>有冠心病、心梗家族史的人</li>
+      </ul>
+    </div>
+
+    <!-- ===== 五、日常预防 ===== -->
+    <div class="section green">
+      <div class="section-header">
+        <div class="section-icon">🛡️</div>
+        <h2>五、日常怎么预防心梗（重点）</h2>
+      </div>
+
+      <div class="sub-title"><span class="emoji">🥗</span> 1. 吃的方面</div>
+      <p><strong>少吃：</strong>肥肉、动物内脏、油炸、烧烤、咸菜、高糖饮料</p>
+      <p><strong>多吃：</strong>蔬菜、水果、粗粮、豆制品、鱼肉</p>
+      <p><strong>原则：</strong>少油、少盐、少糖，每餐七分饱，别暴饮暴食，尤其晚饭别吃太撑。</p>
+
+      <div class="sub-title"><span class="emoji">🏃</span> 2. 生活习惯</div>
+      <ul>
+        <li><strong>绝对戒烟</strong>，少喝酒，最好不喝</li>
+        <li>不熬夜，每天<strong>睡够7小时</strong>，少生气、少激动，情绪别大起大落</li>
+        <li><strong>适度运动：</strong>散步、慢跑、打太极，别剧烈运动，饭后别马上动</li>
+      </ul>
+
+      <div class="sub-title"><span class="emoji">💊</span> 3. 慢病一定要管好</div>
+      <p>高血压、高血脂、糖尿病<strong>按时吃药</strong>，不能自己停药、减药，定期测血压、血糖、血脂，定期体检。</p>
+
+      <div class="sub-title"><span class="emoji">🚫</span> 4. 记住两个"千万别"</div>
+      <ul class="danger-list">
+        <li><strong>千万别</strong>胸痛硬扛、忍一忍</li>
+        <li><strong>千万别</strong>乱信偏方、不去正规医院</li>
+      </ul>
+    </div>
+
+    <!-- ===== 六、出院后注意 ===== -->
+    <div class="section teal">
+      <div class="section-header">
+        <div class="section-icon">📋</div>
+        <h2>六、出院后注意事项</h2>
+      </div>
+      <ol>
+        <li><strong>按时吃药：</strong>医生开的药终身遵医嘱，不擅自停药换药。</li>
+        <li><strong>避免诱因：</strong>避免劳累、受凉、情绪激动，大便别用力屏气。</li>
+        <li><strong>定期复查：</strong>有任何胸闷、心慌、气短马上就医。</li>
+      </ol>
+      <div class="tip">
+        <p>❤️ 出院不等于痊愈，坚持服药、定期复查才是长期健康的保障。</p>
+      </div>
+    </div>
+
+    <!-- ===== Footer ===== -->
+    <div class="footer">
+      <div class="footer-brand">
+        <img src="logowithword.png" alt="陕西省森工医院" class="footer-logo">
+        <p class="footer-dept">心内二科室</p>
+      </div>
+      <p>本宣教材料仅供健康教育参考，具体诊疗请遵医嘱</p>
+    </div>
+
+  </div>
+
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2196F3"/>
+      <stop offset="100%" style="stop-color:#1565C0"/>
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF9800"/>
+      <stop offset="100%" style="stop-color:#E65100"/>
+    </linearGradient>
+    <linearGradient id="yellowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFC107"/>
+      <stop offset="100%" style="stop-color:#FF9800"/>
+    </linearGradient>
+  </defs>
+  <!-- Blue cloud/swirl - top left -->
+  <path d="M60 55 C30 30, 10 60, 40 80 C10 80, 5 110, 40 110 C30 130, 60 140, 75 120" fill="url(#blueGrad)" opacity="0.95"/>
+  <path d="M75 45 C60 25, 30 30, 35 55 C20 45, 10 65, 30 78" fill="#42A5F5" opacity="0.8"/>
+  <!-- Main swirl body -->
+  <path d="M100 65 C130 40, 170 60, 155 95 C175 85, 185 120, 155 135 C170 150, 145 175, 120 160 C135 175, 110 185, 95 165 C80 180, 55 165, 65 140 C45 155, 30 130, 55 115 C35 105, 45 80, 70 85 C55 65, 75 45, 100 65Z" fill="url(#orangeGrad)" opacity="0.9"/>
+  <!-- Inner swirl highlight -->
+  <path d="M105 80 C125 65, 150 80, 140 100 C155 95, 160 115, 140 125 C150 135, 135 150, 120 140 C125 155, 105 155, 100 140 C85 150, 70 140, 80 125 C65 120, 65 100, 82 100 C72 85, 85 72, 105 80Z" fill="url(#yellowGrad)" opacity="0.7"/>
+  <!-- Center medical cross symbol -->
+  <circle cx="105" cy="112" r="18" fill="#C62828" opacity="0.9"/>
+  <rect x="101" y="100" width="8" height="24" rx="2" fill="#fff"/>
+  <rect x="95" y="106" width="20" height="8" rx="2" fill="#fff" opacity="0.95"/>
+  <!-- Small decorative dots -->
+  <circle cx="105" cy="112" r="3" fill="#C62828"/>
+</svg>
